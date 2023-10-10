@@ -1,0 +1,23 @@
+{
+  "name": "mwb-23-001_traveler_tourism_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API/issues"
+  },
+  "homepage": "https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API#readme",
+  "engines": {
+    "node": "18",
+    "npm": "8"
+  }
+}
