@@ -16,9 +16,6 @@
     "@strapi/plugin-i18n": "4.14.4",
     "better-sqlite3": "8.6.0"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
   "strapi": {
     "uuid": "ef973493-3fae-407c-a1fd-326129fe4843"
   },
@@ -26,5 +23,14 @@
     "node": "^16",
     "npm": "8"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API/issues"
+  },
+  "homepage": "https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API#readme",
   "license": "MIT"
 }
