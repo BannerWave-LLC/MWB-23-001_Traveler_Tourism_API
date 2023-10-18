@@ -21,8 +21,8 @@
     "uuid": "194c5c5e-3977-49c1-ad57-e8d1c61116e3"
   },
   "engines": {
-    "node": ">=16.0.0 <=20.x.x",
-    "npm": ">=6.0.0"
+    "node": "^16",
+    "npm": "8"
   },
   "repository": {
     "type": "git",
