@@ -1,5 +1,5 @@
 {
-  "name": "mwb-23-001_traveler_tourism_api",
+  "name": "strapi-missipi",
   "private": true,
   "version": "1.0.0",
   "description": "A Strapi application",
@@ -11,20 +11,27 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.14.4",
-    "@strapi/plugin-users-permissions": "4.14.4",
+    "@strapi/plugin-graphql": "^4.14.4",
     "@strapi/plugin-i18n": "4.14.4",
-    "better-sqlite3": "8.6.0"
-  },
-  "author": {
-    "name": "A Strapi developer"
+    "@strapi/plugin-users-permissions": "4.14.4",
+    "@strapi/strapi": "4.14.4",
+    "pg": "^8.11.3"
   },
   "strapi": {
-    "uuid": "ef973493-3fae-407c-a1fd-326129fe4843"
+    "uuid": "194c5c5e-3977-49c1-ad57-e8d1c61116e3"
   },
   "engines": {
-    "node": ">=16.0.0 <=20.x.x",
-    "npm": ">=6.0.0"
+    "node": "^16",
+    "npm": "8"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API/issues"
+  },
+  "homepage": "https://github.com/BannerWave-LLC/MWB-23-001_Traveler_Tourism_API#readme",
   "license": "MIT"
 }
