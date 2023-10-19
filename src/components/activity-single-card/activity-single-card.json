@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_activity_single_card_activity_single_cards",
+  "info": {
+    "displayName": "activity-single-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "activityTitle": {
+      "type": "string",
+      "required": true
+    },
+    "activityImage": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "nextPageSlug": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

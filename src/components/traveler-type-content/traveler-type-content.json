@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_traveler_type_content_traveler_type_contents",
+  "info": {
+    "displayName": "traveler-type-content",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Beach": {
+      "type": "boolean",
+      "required": true
+    },
+    "Music": {
+      "type": "boolean",
+      "required": true
+    },
+    "Casino": {
+      "type": "boolean",
+      "required": true
+    },
+    "Fine_Dining": {
+      "type": "boolean",
+      "required": true
+    },
+    "travelerTitle": {
+      "type": "string",
+      "required": true
+    },
+    "travelerDescription": {
+      "type": "text",
+      "required": true
+    },
+    "Casual_Dining": {
+      "type": "boolean",
+      "required": true
+    },
+    "Family_Attractions": {
+      "type": "boolean",
+      "required": true
+    },
+    "Art_History": {
+      "type": "boolean",
+      "required": true
+    },
+    "Family": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

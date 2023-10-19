@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "traveler_type_pages",
+  "info": {
+    "singularName": "traveler-type-page",
+    "pluralName": "traveler-type-pages",
+    "displayName": "Traveler-type-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "travelerContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "traveler-type-content.traveler-type-content",
+      "required": true
+    }
+  }
+}

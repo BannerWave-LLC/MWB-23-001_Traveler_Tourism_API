@@ -677,6 +677,105 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiChooseActivityPageChooseActivityPage
+  extends Schema.CollectionType {
+  collectionName: 'choose_activity_pages';
+  info: {
+    singularName: 'choose-activity-page';
+    pluralName: 'choose-activity-pages';
+    displayName: 'choose-activity-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cards: Attribute.Component<'activity-cards.activity-cards', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::choose-activity-page.choose-activity-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::choose-activity-page.choose-activity-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomepageHomepage extends Schema.CollectionType {
+  collectionName: 'homepages';
+  info: {
+    singularName: 'homepage';
+    pluralName: 'homepages';
+    displayName: 'homepage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    homepageTitle: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    buttonText: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTravelerTypePageTravelerTypePage
+  extends Schema.CollectionType {
+  collectionName: 'traveler_type_pages';
+  info: {
+    singularName: 'traveler-type-page';
+    pluralName: 'traveler-type-pages';
+    displayName: 'Traveler-type-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    travelerContent: Attribute.Component<
+      'traveler-type-content.traveler-type-content',
+      true
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::traveler-type-page.traveler-type-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::traveler-type-page.traveler-type-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -693,6 +792,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::choose-activity-page.choose-activity-page': ApiChooseActivityPageChooseActivityPage;
+      'api::homepage.homepage': ApiHomepageHomepage;
+      'api::traveler-type-page.traveler-type-page': ApiTravelerTypePageTravelerTypePage;
     }
   }
 }
