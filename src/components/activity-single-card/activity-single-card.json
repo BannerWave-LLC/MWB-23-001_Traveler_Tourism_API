@@ -22,6 +22,10 @@
     "nextPageSlug": {
       "type": "string",
       "required": true
+    },
+    "query": {
+      "type": "string",
+      "required": true
     }
   }
 }

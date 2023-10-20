@@ -28,6 +28,7 @@ export interface ActivitySingleCardActivitySingleCard extends Schema.Component {
     activityTitle: Attribute.String & Attribute.Required;
     activityImage: Attribute.Media & Attribute.Required;
     nextPageSlug: Attribute.String & Attribute.Required;
+    query: Attribute.String & Attribute.Required;
   };
 }
 
@@ -40,15 +41,15 @@ export interface TravelerTypeContentTravelerTypeContent
   };
   attributes: {
     Beach: Attribute.Boolean & Attribute.Required;
+    Hiking: Attribute.Boolean & Attribute.Required;
+    Arthistory: Attribute.Boolean & Attribute.Required;
     Music: Attribute.Boolean & Attribute.Required;
     Casino: Attribute.Boolean & Attribute.Required;
     Fine_Dining: Attribute.Boolean & Attribute.Required;
-    travelerTitle: Attribute.String & Attribute.Required;
-    travelerDescription: Attribute.Text & Attribute.Required;
     Casual_Dining: Attribute.Boolean & Attribute.Required;
-    Family_Attractions: Attribute.Boolean & Attribute.Required;
-    Art_History: Attribute.Boolean & Attribute.Required;
-    Family: Attribute.Boolean & Attribute.Required;
+    Family_Fun: Attribute.Boolean;
+    travelerTitle: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
   };
 }
 

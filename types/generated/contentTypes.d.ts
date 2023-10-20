@@ -715,12 +715,13 @@ export interface ApiHomepageHomepage extends Schema.CollectionType {
     singularName: 'homepage';
     pluralName: 'homepages';
     displayName: 'homepage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    homepageTitle: Attribute.String & Attribute.Required;
+    homepageTitle: Attribute.String;
     description: Attribute.String & Attribute.Required;
     buttonText: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -748,12 +749,13 @@ export interface ApiTravelerTypePageTravelerTypePage
     singularName: 'traveler-type-page';
     pluralName: 'traveler-type-pages';
     displayName: 'Traveler-type-page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    travelerContent: Attribute.Component<
+    travelerTypes: Attribute.Component<
       'traveler-type-content.traveler-type-content',
       true
     > &

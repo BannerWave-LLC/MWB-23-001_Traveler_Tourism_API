@@ -10,6 +10,14 @@
       "type": "boolean",
       "required": true
     },
+    "Hiking": {
+      "type": "boolean",
+      "required": true
+    },
+    "Arthistory": {
+      "type": "boolean",
+      "required": true
+    },
     "Music": {
       "type": "boolean",
       "required": true
@@ -22,28 +30,19 @@
       "type": "boolean",
       "required": true
     },
-    "travelerTitle": {
-      "type": "string",
-      "required": true
-    },
-    "travelerDescription": {
-      "type": "text",
-      "required": true
-    },
     "Casual_Dining": {
       "type": "boolean",
       "required": true
     },
-    "Family_Attractions": {
-      "type": "boolean",
+    "Family_Fun": {
+      "type": "boolean"
+    },
+    "travelerTitle": {
+      "type": "string",
       "required": true
     },
-    "Art_History": {
-      "type": "boolean",
-      "required": true
-    },
-    "Family": {
-      "type": "boolean",
+    "description": {
+      "type": "text",
       "required": true
     }
   }
