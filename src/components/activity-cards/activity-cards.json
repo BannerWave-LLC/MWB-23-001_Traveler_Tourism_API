@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_activity_cards_activity_cards",
+  "info": {
+    "displayName": "activity-cards"
+  },
+  "options": {},
+  "attributes": {
+    "cardsCollection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "activity-single-card.activity-single-card",
+      "required": true,
+      "max": 2,
+      "min": 2
+    }
+  }
+}
