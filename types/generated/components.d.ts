@@ -26,9 +26,9 @@ export interface ActivitySingleCardActivitySingleCard extends Schema.Component {
   };
   attributes: {
     activityTitle: Attribute.String & Attribute.Required;
-    activityImage: Attribute.Media & Attribute.Required;
     nextPageSlug: Attribute.String & Attribute.Required;
     query: Attribute.String & Attribute.Required;
+    currentPage: Attribute.String & Attribute.Required;
   };
 }
 

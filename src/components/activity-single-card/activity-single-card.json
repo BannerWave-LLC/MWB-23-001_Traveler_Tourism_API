@@ -10,20 +10,15 @@
       "type": "string",
       "required": true
     },
-    "activityImage": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
     "nextPageSlug": {
       "type": "string",
       "required": true
     },
     "query": {
+      "type": "string",
+      "required": true
+    },
+    "currentPage": {
       "type": "string",
       "required": true
     }
