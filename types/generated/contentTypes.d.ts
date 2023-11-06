@@ -677,6 +677,40 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiActivityCategoryPageActivityCategoryPage
+  extends Schema.CollectionType {
+  collectionName: 'activity_category_pages';
+  info: {
+    singularName: 'activity-category-page';
+    pluralName: 'activity-category-pages';
+    displayName: 'activity-category-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    activityCategorySlider: Attribute.Component<
+      'category-slider.category-slider',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::activity-category-page.activity-category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::activity-category-page.activity-category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiChooseActivityPageChooseActivityPage
   extends Schema.CollectionType {
   collectionName: 'choose_activity_pages';
@@ -794,6 +828,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::activity-category-page.activity-category-page': ApiActivityCategoryPageActivityCategoryPage;
       'api::choose-activity-page.choose-activity-page': ApiChooseActivityPageChooseActivityPage;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::traveler-type-page.traveler-type-page': ApiTravelerTypePageTravelerTypePage;

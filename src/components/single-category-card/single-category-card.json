@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_single_category_card_single_category_cards",
+  "info": {
+    "displayName": "single-category-card"
+  },
+  "options": {},
+  "attributes": {
+    "sliderTitle": {
+      "type": "string",
+      "required": true
+    },
+    "sliderShortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "sliderLongDescription": {
+      "type": "text",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "slideImage": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
