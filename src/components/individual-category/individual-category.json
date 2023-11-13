@@ -26,6 +26,13 @@
     },
     "pageHeading": {
       "type": "string"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

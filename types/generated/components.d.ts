@@ -66,6 +66,7 @@ export interface IndividualCategoryIndividualCategory extends Schema.Component {
       Attribute.DefaultTo<true>;
     currentPageSlug: Attribute.String & Attribute.Required;
     pageHeading: Attribute.String;
+    img: Attribute.Media;
   };
 }
 
