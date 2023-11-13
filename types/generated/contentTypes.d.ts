@@ -776,6 +776,40 @@ export interface ApiHomepageHomepage extends Schema.CollectionType {
   };
 }
 
+export interface ApiIndividualCategoryPageIndividualCategoryPage
+  extends Schema.CollectionType {
+  collectionName: 'individual_category_pages';
+  info: {
+    singularName: 'individual-category-page';
+    pluralName: 'individual-category-pages';
+    displayName: 'Individual Category Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    individualCategories: Attribute.Component<
+      'individual-category.individual-category',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::individual-category-page.individual-category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::individual-category-page.individual-category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTravelerTypePageTravelerTypePage
   extends Schema.CollectionType {
   collectionName: 'traveler_type_pages';
@@ -831,6 +865,7 @@ declare module '@strapi/types' {
       'api::activity-category-page.activity-category-page': ApiActivityCategoryPageActivityCategoryPage;
       'api::choose-activity-page.choose-activity-page': ApiChooseActivityPageChooseActivityPage;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::individual-category-page.individual-category-page': ApiIndividualCategoryPageIndividualCategoryPage;
       'api::traveler-type-page.traveler-type-page': ApiTravelerTypePageTravelerTypePage;
     }
   }
