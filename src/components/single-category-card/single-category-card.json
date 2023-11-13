@@ -11,7 +11,7 @@
       "required": true
     },
     "sliderShortDescription": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "sliderLongDescription": {
@@ -26,7 +26,10 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "videos"]
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     },
     "nextPageSlug": {
       "type": "string",
