@@ -23,6 +23,22 @@
     "buttonText": {
       "type": "string",
       "required": true
+    },
+    "posterImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "videoBackground": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
     }
   }
 }
