@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_individual_category_individual_categories",
+  "info": {
+    "displayName": "Individual Category",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "learnMoreUrl": {
+      "type": "string"
+    },
+    "isListType": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "currentPageSlug": {
+      "type": "string",
+      "required": true
+    },
+    "pageHeading": {
+      "type": "string"
+    }
+  }
+}

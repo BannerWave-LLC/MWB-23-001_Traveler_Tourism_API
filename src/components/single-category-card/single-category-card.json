@@ -1,7 +1,8 @@
 {
   "collectionName": "components_single_category_card_single_category_cards",
   "info": {
-    "displayName": "single-category-card"
+    "displayName": "single-category-card",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,13 +23,14 @@
       "required": true
     },
     "slideImage": {
-      "allowedTypes": [
-        "images",
-        "videos"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": ["images", "videos"]
+    },
+    "nextPageSlug": {
+      "type": "string",
+      "required": false
     }
   }
 }

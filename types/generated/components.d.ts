@@ -51,10 +51,29 @@ export interface CategorySliderCategorySlider extends Schema.Component {
   };
 }
 
+export interface IndividualCategoryIndividualCategory extends Schema.Component {
+  collectionName: 'components_individual_category_individual_categories';
+  info: {
+    displayName: 'Individual Category';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Description: Attribute.Text;
+    learnMoreUrl: Attribute.String;
+    isListType: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    currentPageSlug: Attribute.String & Attribute.Required;
+    pageHeading: Attribute.String;
+  };
+}
+
 export interface SingleCategoryCardSingleCategoryCard extends Schema.Component {
   collectionName: 'components_single_category_card_single_category_cards';
   info: {
     displayName: 'single-category-card';
+    description: '';
   };
   attributes: {
     sliderTitle: Attribute.String & Attribute.Required;
@@ -62,6 +81,7 @@ export interface SingleCategoryCardSingleCategoryCard extends Schema.Component {
     sliderLongDescription: Attribute.Text & Attribute.Required;
     location: Attribute.String & Attribute.Required;
     slideImage: Attribute.Media & Attribute.Required;
+    nextPageSlug: Attribute.String;
   };
 }
 
@@ -92,6 +112,7 @@ declare module '@strapi/types' {
       'activity-cards.activity-cards': ActivityCardsActivityCards;
       'activity-single-card.activity-single-card': ActivitySingleCardActivitySingleCard;
       'category-slider.category-slider': CategorySliderCategorySlider;
+      'individual-category.individual-category': IndividualCategoryIndividualCategory;
       'single-category-card.single-category-card': SingleCategoryCardSingleCategoryCard;
       'traveler-type-content.traveler-type-content': TravelerTypeContentTravelerTypeContent;
     }
