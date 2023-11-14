@@ -27,6 +27,12 @@
       "type": "media",
       "multiple": false,
       "required": true
+    },
+    "traveler_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::traveler-type.traveler-type",
+      "inversedBy": "categories"
     }
   }
 }

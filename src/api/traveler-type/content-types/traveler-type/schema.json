@@ -21,17 +21,23 @@
       "required": true
     },
     "badgeImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "preTitle": {
       "type": "string",
       "default": "You are a",
       "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "traveler_type"
     }
   }
 }
