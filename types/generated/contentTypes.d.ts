@@ -677,6 +677,45 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiActivityActivity extends Schema.CollectionType {
+  collectionName: 'activities';
+  info: {
+    singularName: 'activity';
+    pluralName: 'activities';
+    displayName: 'Activity';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    point_of_interest: Attribute.Relation<
+      'api::activity.activity',
+      'oneToOne',
+      'api::point-of-interest.point-of-interest'
+    >;
+    description: Attribute.Text & Attribute.Required;
+    learnMoreLinkUrl: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::activity.activity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::activity.activity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiActivityCategoryPageActivityCategoryPage
   extends Schema.CollectionType {
   collectionName: 'activity_category_pages';
@@ -704,6 +743,39 @@ export interface ApiActivityCategoryPageActivityCategoryPage
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::activity-category-page.activity-category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    titleCardImage: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
@@ -755,9 +827,13 @@ export interface ApiHomepageHomepage extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    homepageTitle: Attribute.String;
-    description: Attribute.String & Attribute.Required;
-    buttonText: Attribute.String & Attribute.Required;
+    title: Attribute.String;
+    description: Attribute.Text & Attribute.Required;
+    cta: Attribute.String & Attribute.Required;
+    posterImageDesktop: Attribute.Media & Attribute.Required;
+    posterImageMobile: Attribute.Media & Attribute.Required;
+    videoBackgroundDesktop: Attribute.Media & Attribute.Required;
+    videoBackgroundMobile: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -769,6 +845,43 @@ export interface ApiHomepageHomepage extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomepageContentHomepageContent extends Schema.SingleType {
+  collectionName: 'homepage_contents';
+  info: {
+    singularName: 'homepage-content';
+    pluralName: 'homepage-contents';
+    displayName: 'Homepage Content';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    description: Attribute.Text;
+    cta: Attribute.String & Attribute.Required;
+    posterImageDesktop: Attribute.Media & Attribute.Required;
+    posterImageMobile: Attribute.Media & Attribute.Required;
+    videoBackgroundDesktop: Attribute.Media & Attribute.Required;
+    videoBackgroundMobile: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::homepage-content.homepage-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::homepage-content.homepage-content',
       'oneToOne',
       'admin::user'
     > &
@@ -803,6 +916,84 @@ export interface ApiIndividualCategoryPageIndividualCategoryPage
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::individual-category-page.individual-category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPointOfInterestPointOfInterest
+  extends Schema.CollectionType {
+  collectionName: 'points_of_interest';
+  info: {
+    singularName: 'point-of-interest';
+    pluralName: 'points-of-interest';
+    displayName: 'Point of Interest';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    category: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'oneToOne',
+      'api::category.category'
+    >;
+    location: Attribute.String & Attribute.Required;
+    shortDescription: Attribute.Text & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    listActivitiesVertically: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTravelerTypeTravelerType extends Schema.CollectionType {
+  collectionName: 'traveler_types';
+  info: {
+    singularName: 'traveler-type';
+    pluralName: 'traveler-types';
+    displayName: 'Traveler Type';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    badgeImage: Attribute.Media & Attribute.Required;
+    preTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'You are a'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::traveler-type.traveler-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::traveler-type.traveler-type',
       'oneToOne',
       'admin::user'
     > &
@@ -862,10 +1053,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::activity.activity': ApiActivityActivity;
       'api::activity-category-page.activity-category-page': ApiActivityCategoryPageActivityCategoryPage;
+      'api::category.category': ApiCategoryCategory;
       'api::choose-activity-page.choose-activity-page': ApiChooseActivityPageChooseActivityPage;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::homepage-content.homepage-content': ApiHomepageContentHomepageContent;
       'api::individual-category-page.individual-category-page': ApiIndividualCategoryPageIndividualCategoryPage;
+      'api::point-of-interest.point-of-interest': ApiPointOfInterestPointOfInterest;
+      'api::traveler-type.traveler-type': ApiTravelerTypeTravelerType;
       'api::traveler-type-page.traveler-type-page': ApiTravelerTypePageTravelerTypePage;
     }
   }

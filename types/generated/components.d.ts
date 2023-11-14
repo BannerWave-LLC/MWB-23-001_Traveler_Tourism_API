@@ -41,7 +41,7 @@ export interface CategorySliderCategorySlider extends Schema.Component {
   attributes: {
     categoryType: Attribute.String & Attribute.Required;
     sliderGuideTitle: Attribute.String & Attribute.Required;
-    sliderGuideDescription: Attribute.String & Attribute.Required;
+    sliderGuideDescription: Attribute.Text & Attribute.Required;
     sliderGuideImage: Attribute.Media & Attribute.Required;
     SingleCategoryCard: Attribute.Component<
       'single-category-card.single-category-card',
@@ -78,7 +78,7 @@ export interface SingleCategoryCardSingleCategoryCard extends Schema.Component {
   };
   attributes: {
     sliderTitle: Attribute.String & Attribute.Required;
-    sliderShortDescription: Attribute.String & Attribute.Required;
+    sliderShortDescription: Attribute.Text & Attribute.Required;
     sliderLongDescription: Attribute.Text & Attribute.Required;
     location: Attribute.String & Attribute.Required;
     slideImage: Attribute.Media & Attribute.Required;
