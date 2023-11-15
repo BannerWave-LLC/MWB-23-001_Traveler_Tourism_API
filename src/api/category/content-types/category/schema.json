@@ -21,12 +21,12 @@
       "required": true
     },
     "titleCardImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "traveler_type": {
       "type": "relation",
@@ -34,11 +34,11 @@
       "target": "api::traveler-type.traveler-type",
       "inversedBy": "categories"
     },
-    "point_of_interest": {
+    "point_of_interests": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::point-of-interest.point-of-interest",
-      "inversedBy": "category"
+      "mappedBy": "category"
     }
   }
 }

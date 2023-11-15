@@ -16,12 +16,6 @@
       "type": "string",
       "required": true
     },
-    "category": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category",
-      "inversedBy": "point_of_interest"
-    },
     "location": {
       "type": "string",
       "required": true
@@ -46,11 +40,17 @@
       "type": "boolean",
       "default": false
     },
-    "activity": {
+    "activities": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::activity.activity",
-      "inversedBy": "point_of_interest"
+      "mappedBy": "point_of_interest"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "point_of_interests"
     }
   }
 }

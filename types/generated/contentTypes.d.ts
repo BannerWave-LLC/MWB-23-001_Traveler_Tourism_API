@@ -690,14 +690,14 @@ export interface ApiActivityActivity extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    point_of_interest: Attribute.Relation<
-      'api::activity.activity',
-      'oneToOne',
-      'api::point-of-interest.point-of-interest'
-    >;
     description: Attribute.Text & Attribute.Required;
     learnMoreLinkUrl: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
+    point_of_interest: Attribute.Relation<
+      'api::activity.activity',
+      'manyToOne',
+      'api::point-of-interest.point-of-interest'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -770,9 +770,9 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToOne',
       'api::traveler-type.traveler-type'
     >;
-    point_of_interest: Attribute.Relation<
+    point_of_interests: Attribute.Relation<
       'api::category.category',
-      'oneToOne',
+      'oneToMany',
       'api::point-of-interest.point-of-interest'
     >;
     createdAt: Attribute.DateTime;
@@ -947,20 +947,20 @@ export interface ApiPointOfInterestPointOfInterest
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    category: Attribute.Relation<
-      'api::point-of-interest.point-of-interest',
-      'oneToOne',
-      'api::category.category'
-    >;
     location: Attribute.String & Attribute.Required;
     shortDescription: Attribute.Text & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     listActivitiesVertically: Attribute.Boolean & Attribute.DefaultTo<false>;
-    activity: Attribute.Relation<
+    activities: Attribute.Relation<
       'api::point-of-interest.point-of-interest',
-      'oneToOne',
+      'oneToMany',
       'api::activity.activity'
+    >;
+    category: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'manyToOne',
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
