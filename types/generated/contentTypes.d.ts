@@ -869,7 +869,7 @@ export interface ApiHomepageContentHomepageContent extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    title: Attribute.String;
     description: Attribute.Text;
     cta: Attribute.String & Attribute.Required;
     posterImageDesktop: Attribute.Media & Attribute.Required;
