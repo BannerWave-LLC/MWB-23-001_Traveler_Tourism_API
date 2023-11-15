@@ -770,6 +770,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToOne',
       'api::traveler-type.traveler-type'
     >;
+    point_of_interest: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::point-of-interest.point-of-interest'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -952,6 +957,11 @@ export interface ApiPointOfInterestPointOfInterest
     description: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     listActivitiesVertically: Attribute.Boolean & Attribute.DefaultTo<false>;
+    activity: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'oneToOne',
+      'api::activity.activity'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

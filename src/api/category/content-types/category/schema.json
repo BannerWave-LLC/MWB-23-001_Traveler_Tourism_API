@@ -33,6 +33,12 @@
       "relation": "manyToOne",
       "target": "api::traveler-type.traveler-type",
       "inversedBy": "categories"
+    },
+    "point_of_interest": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::point-of-interest.point-of-interest",
+      "inversedBy": "category"
     }
   }
 }

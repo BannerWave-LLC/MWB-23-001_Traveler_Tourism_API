@@ -19,7 +19,8 @@
     "category": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::category.category"
+      "target": "api::category.category",
+      "inversedBy": "point_of_interest"
     },
     "location": {
       "type": "string",
@@ -44,6 +45,12 @@
     "listActivitiesVertically": {
       "type": "boolean",
       "default": false
+    },
+    "activity": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::activity.activity",
+      "inversedBy": "point_of_interest"
     }
   }
 }

@@ -19,7 +19,8 @@
     "point_of_interest": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::point-of-interest.point-of-interest"
+      "target": "api::point-of-interest.point-of-interest",
+      "inversedBy": "activity"
     },
     "description": {
       "type": "text",
@@ -30,12 +31,12 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
