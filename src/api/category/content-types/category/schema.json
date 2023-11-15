@@ -28,9 +28,9 @@
         "images"
       ]
     },
-    "traveler_type": {
+    "traveler_types": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::traveler-type.traveler-type",
       "inversedBy": "categories"
     },

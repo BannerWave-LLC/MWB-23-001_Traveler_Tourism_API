@@ -765,9 +765,9 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     titleCardImage: Attribute.Media & Attribute.Required;
-    traveler_type: Attribute.Relation<
+    traveler_types: Attribute.Relation<
       'api::category.category',
-      'manyToOne',
+      'manyToMany',
       'api::traveler-type.traveler-type'
     >;
     point_of_interests: Attribute.Relation<
@@ -1000,7 +1000,7 @@ export interface ApiTravelerTypeTravelerType extends Schema.CollectionType {
       Attribute.DefaultTo<'You are a'>;
     categories: Attribute.Relation<
       'api::traveler-type.traveler-type',
-      'oneToMany',
+      'manyToMany',
       'api::category.category'
     >;
     createdAt: Attribute.DateTime;
