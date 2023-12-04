@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "traveler_types",
+  "info": {
+    "singularName": "traveler-type",
+    "pluralName": "traveler-types",
+    "displayName": "Traveler Type",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "badgeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "preTitle": {
+      "type": "string",
+      "default": "You are a",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "traveler_types"
+    }
+  }
+}

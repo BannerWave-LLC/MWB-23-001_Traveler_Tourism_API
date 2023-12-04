@@ -677,31 +677,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiChooseActivityPageChooseActivityPage
-  extends Schema.CollectionType {
-  collectionName: 'choose_activity_pages';
+export interface ApiActivityActivity extends Schema.CollectionType {
+  collectionName: 'activities';
   info: {
-    singularName: 'choose-activity-page';
-    pluralName: 'choose-activity-pages';
-    displayName: 'choose-activity-page';
+    singularName: 'activity';
+    pluralName: 'activities';
+    displayName: 'Activity';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    cards: Attribute.Component<'activity-cards.activity-cards', true> &
-      Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    learnMoreLinkUrl: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    point_of_interest: Attribute.Relation<
+      'api::activity.activity',
+      'manyToOne',
+      'api::point-of-interest.point-of-interest'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::choose-activity-page.choose-activity-page',
+      'api::activity.activity',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::choose-activity-page.choose-activity-page',
+      'api::activity.activity',
       'oneToOne',
       'admin::user'
     > &
@@ -709,32 +716,42 @@ export interface ApiChooseActivityPageChooseActivityPage
   };
 }
 
-export interface ApiHomepageHomepage extends Schema.CollectionType {
-  collectionName: 'homepages';
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
   info: {
-    singularName: 'homepage';
-    pluralName: 'homepages';
-    displayName: 'homepage';
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    homepageTitle: Attribute.String;
-    description: Attribute.String & Attribute.Required;
-    buttonText: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    titleCardImage: Attribute.Media & Attribute.Required;
+    traveler_types: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::traveler-type.traveler-type'
+    >;
+    point_of_interests: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::point-of-interest.point-of-interest'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::homepage.homepage',
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::homepage.homepage',
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
@@ -742,35 +759,124 @@ export interface ApiHomepageHomepage extends Schema.CollectionType {
   };
 }
 
-export interface ApiTravelerTypePageTravelerTypePage
-  extends Schema.CollectionType {
-  collectionName: 'traveler_type_pages';
+export interface ApiHomepageContentHomepageContent extends Schema.SingleType {
+  collectionName: 'homepage_contents';
   info: {
-    singularName: 'traveler-type-page';
-    pluralName: 'traveler-type-pages';
-    displayName: 'Traveler-type-page';
+    singularName: 'homepage-content';
+    pluralName: 'homepage-contents';
+    displayName: 'Homepage Content';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    travelerTypes: Attribute.Component<
-      'traveler-type-content.traveler-type-content',
-      true
-    > &
-      Attribute.Required;
+    title: Attribute.String;
+    description: Attribute.Text;
+    cta: Attribute.String & Attribute.Required;
+    posterImageDesktop: Attribute.Media & Attribute.Required;
+    posterImageMobile: Attribute.Media & Attribute.Required;
+    videoBackgroundDesktop: Attribute.Media & Attribute.Required;
+    videoBackgroundMobile: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::traveler-type-page.traveler-type-page',
+      'api::homepage-content.homepage-content',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::traveler-type-page.traveler-type-page',
+      'api::homepage-content.homepage-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPointOfInterestPointOfInterest
+  extends Schema.CollectionType {
+  collectionName: 'points_of_interest';
+  info: {
+    singularName: 'point-of-interest';
+    pluralName: 'points-of-interest';
+    displayName: 'Point of Interest';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    location: Attribute.String & Attribute.Required;
+    shortDescription: Attribute.Text & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    listActivitiesVertically: Attribute.Boolean & Attribute.DefaultTo<false>;
+    activities: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'oneToMany',
+      'api::activity.activity'
+    >;
+    category: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'manyToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::point-of-interest.point-of-interest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTravelerTypeTravelerType extends Schema.CollectionType {
+  collectionName: 'traveler_types';
+  info: {
+    singularName: 'traveler-type';
+    pluralName: 'traveler-types';
+    displayName: 'Traveler Type';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    badgeImage: Attribute.Media & Attribute.Required;
+    preTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'You are a'>;
+    categories: Attribute.Relation<
+      'api::traveler-type.traveler-type',
+      'manyToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::traveler-type.traveler-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::traveler-type.traveler-type',
       'oneToOne',
       'admin::user'
     > &
@@ -794,9 +900,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::choose-activity-page.choose-activity-page': ApiChooseActivityPageChooseActivityPage;
-      'api::homepage.homepage': ApiHomepageHomepage;
-      'api::traveler-type-page.traveler-type-page': ApiTravelerTypePageTravelerTypePage;
+      'api::activity.activity': ApiActivityActivity;
+      'api::category.category': ApiCategoryCategory;
+      'api::homepage-content.homepage-content': ApiHomepageContentHomepageContent;
+      'api::point-of-interest.point-of-interest': ApiPointOfInterestPointOfInterest;
+      'api::traveler-type.traveler-type': ApiTravelerTypeTravelerType;
     }
   }
 }
