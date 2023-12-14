@@ -825,6 +825,7 @@ export interface ApiPointOfInterestPointOfInterest
       'manyToOne',
       'api::category.category'
     >;
+    overrideCTAText: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
