@@ -810,7 +810,7 @@ export interface ApiPointOfInterestPointOfInterest
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    location: Attribute.String & Attribute.Required;
+    location: Attribute.String;
     shortDescription: Attribute.Text & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
@@ -825,6 +825,7 @@ export interface ApiPointOfInterestPointOfInterest
       'manyToOne',
       'api::category.category'
     >;
+    overrideCTAText: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
