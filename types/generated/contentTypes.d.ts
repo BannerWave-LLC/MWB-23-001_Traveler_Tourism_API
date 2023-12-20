@@ -796,6 +796,41 @@ export interface ApiHomepageContentHomepageContent extends Schema.SingleType {
   };
 }
 
+export interface ApiOverlayContentOverlayContent extends Schema.SingleType {
+  collectionName: 'overlay_contents';
+  info: {
+    singularName: 'overlay-content';
+    pluralName: 'overlay-contents';
+    displayName: 'Overlay Content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    InfoPanels: Attribute.Component<'info-panel.info-panel', true> &
+      Attribute.SetMinMax<{
+        min: 2;
+        max: 2;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::overlay-content.overlay-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::overlay-content.overlay-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPointOfInterestPointOfInterest
   extends Schema.CollectionType {
   collectionName: 'points_of_interest';
@@ -904,6 +939,7 @@ declare module '@strapi/types' {
       'api::activity.activity': ApiActivityActivity;
       'api::category.category': ApiCategoryCategory;
       'api::homepage-content.homepage-content': ApiHomepageContentHomepageContent;
+      'api::overlay-content.overlay-content': ApiOverlayContentOverlayContent;
       'api::point-of-interest.point-of-interest': ApiPointOfInterestPointOfInterest;
       'api::traveler-type.traveler-type': ApiTravelerTypeTravelerType;
     }
