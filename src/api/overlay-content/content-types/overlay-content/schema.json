@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "overlay_contents",
+  "info": {
+    "singularName": "overlay-content",
+    "pluralName": "overlay-contents",
+    "displayName": "Overlay Content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "InfoPanels": {
+      "displayName": "Info Panel",
+      "type": "component",
+      "repeatable": true,
+      "component": "info-panel.info-panel",
+      "max": 2,
+      "min": 2
+    }
+  }
+}

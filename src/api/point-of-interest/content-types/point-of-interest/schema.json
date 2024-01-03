@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "points_of_interest",
+  "info": {
+    "singularName": "point-of-interest",
+    "pluralName": "points-of-interest",
+    "displayName": "Point of Interest",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": false
+    },
+    "shortDescription": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "listActivitiesVertically": {
+      "type": "boolean",
+      "default": false
+    },
+    "activities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::activity.activity",
+      "mappedBy": "point_of_interest"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "point_of_interests"
+    },
+    "overrideCTAText": {
+      "type": "string"
+    }
+  }
+}

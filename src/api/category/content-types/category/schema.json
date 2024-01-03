@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "titleCardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "traveler_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::traveler-type.traveler-type",
+      "inversedBy": "categories"
+    },
+    "point_of_interests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point-of-interest.point-of-interest",
+      "mappedBy": "category"
+    }
+  }
+}
