@@ -21,8 +21,8 @@
     "uuid": "194c5c5e-3977-49c1-ad57-e8d1c61116e3"
   },
   "engines": {
-    "node": "^16",
-    "npm": "8"
+    "node": "20.10.0",
+    "yarn": "1.22.19"
   },
   "repository": {
     "type": "git",
