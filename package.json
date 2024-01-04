@@ -11,11 +11,16 @@
   },
   "dependencies": {
     "@strapi/plugin-graphql": "^4.14.4",
-    "@strapi/plugin-i18n": "4.14.4",
-    "@strapi/plugin-users-permissions": "4.14.4",
+    "@strapi/plugin-i18n": "4.16.2",
+    "@strapi/plugin-users-permissions": "4.16.2",
     "@strapi/provider-upload-cloudinary": "^4.15.0",
-    "@strapi/strapi": "4.14.4",
-    "pg": "^8.11.3"
+    "@strapi/strapi": "4.16.2",
+    "axios": "^1.6.4",
+    "pg": "^8.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1",
+    "styled-components": "^6.1.6"
   },
   "strapi": {
     "uuid": "194c5c5e-3977-49c1-ad57-e8d1c61116e3"
