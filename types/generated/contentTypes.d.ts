@@ -861,6 +861,7 @@ export interface ApiPointOfInterestPointOfInterest
       'api::category.category'
     >;
     overrideCTAText: Attribute.String;
+    activityHeaderImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
