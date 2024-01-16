@@ -54,6 +54,13 @@
     },
     "overrideCTAText": {
       "type": "string"
+    },
+    "activityHeaderImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
